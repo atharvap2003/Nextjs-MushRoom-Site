@@ -83,20 +83,20 @@ export default function Cta() {
           >
             <Maps />
             <Link href="https://www.google.com/maps/place/17%C2%B055'49.7%22N+74%C2%B037'43.5%22E/@17.930459,74.628745,17z/data=!3m1!4b1!4m4!3m3!8m2!3d17.930459!4d74.628745?entry=ttu" className="text-left mt-[8px] flex flex-col">
-            <strong>Address:</strong> Kurvali bk tal phaltan dist satara pincode 415523,
-              <br/> Kurvali Bk., Maharashtra 415523{" "}
+            {/* <strong>Address:</strong> Kurvali bk tal phaltan dist satara pincode 415523, */}
+              {/* <br/> Kurvali Bk., Maharashtra 415523{" "} */}
             </Link>
             {/* phone &Email */}
             <div className="flex flex-col gap-y-1 font-semibold">
               {/* phone */}
               <div className="flex mt-[8px] gap-x-[15px]">
-                <FaPhone className="mt-1" />
-                <div className="font-medium">(+91)77768 65280,<br/>(+91)70283 94172</div>
+                {/* <FaPhone className="mt-1" /> */}
+                {/* <div className="font-medium">(+91)77768 65280,<br/>(+91)70283 94172</div> */}
               </div>
               {/* email */}
               <div className="flex items-center mt-[8px] gap-x-[15px]">
-                <FaEnvelope />
-                <div className="font-medium">hillriseagrovision.com</div>
+                {/* <FaEnvelope /> */}
+                {/* <div className="font-medium">hillriseagrovision.com</div> */}
               </div>
             </div>
           </motion.div>

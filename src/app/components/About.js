@@ -53,7 +53,7 @@ const About = () => {
                 viewport={{ once: false, amount: 0.6 }}
                 className="mb-[42px] max-w-md text-justify"
               >
-                <strong>Hillrise Mushroom, </strong> <br/> led by CEO and MD Shubham Suryaji Gawade, is a beacon of excellence in the world of mushroom cultivation. Nestled amidst picturesque hills, we specialize in premium, farm-fresh mushrooms. With a commitment to quality and sustainability, we bring nature's bounty to your table, ensuring every bite is a testament to our passion for perfection. 
+                <strong>Our Brand, </strong> <br/>  is a beacon of excellence in the world of mushroom cultivation. Nestled amidst picturesque hills, we specialize in premium, farm-fresh mushrooms. With a commitment to quality and sustainability, we bring nature's bounty to your table, ensuring every bite is a testament to our passion for perfection. 
               </motion.p>
               <motion.div 
                 variants={fadeIn("down", 0.6)}

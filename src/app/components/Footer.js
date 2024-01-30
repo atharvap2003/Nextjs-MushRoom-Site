@@ -34,16 +34,16 @@ export default function Footer() {
             </div>
             {/* phone &Email */}
             <div className="flex flex-col gap-y-4 font-semibold">
-              <div >MD & CEO:<br/> Subham Suryaji Gawade </div>
+             {/* md-ceo name <div >:<br/> </div> */}
               {/* phone */}
               <div className="flex gap-x-[10px]">
                 <FaPhone className="mt-1" />
-                <div className="font-medium">(+91)77768 65280,<br/>(+91)70283 94172</div>
+                <div className="font-medium">(+91)77777 99999,<br/>(+91)99885 99887</div>
               </div>
               {/* email */}
               <div className="flex items-center gap-x-[10px]">
                 <FaEnvelope />
-                <div className="font-medium">hillriseagrovision@gmail.com</div>
+                <div className="font-medium">abcdefghijk@gmail.com</div>
               </div>
             </div>
           </div>
