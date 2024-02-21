@@ -2,7 +2,16 @@
 
 import Image from "next/image";
 
-import { FaPhone, FaEnvelope,FaInstagram, FaFacebookF, FaLinkedin, FaTwitter } from "react-icons/fa6";
+import {
+  FaPhone,
+  FaEnvelope,
+  FaInstagram,
+  FaFacebookF,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa6";
+
+
 
 // Motion::
 import { motion, easeInOut } from "framer-motion";
@@ -26,7 +35,12 @@ export default function Footer() {
               spy={true}
               className="cursor-pointer"
             >
-              <Image src={"/icons/hillrise-logo.jpg"} width={160} height={200} alt="Image" />
+              <Image
+                src={"/icons/hillrise-logo.jpg"}
+                width={160}
+                height={200}
+                alt="Image"
+              />
             </Link>
             {/* text */}
             <div className="text-secondary ">
@@ -34,11 +48,15 @@ export default function Footer() {
             </div>
             {/* phone &Email */}
             <div className="flex flex-col gap-y-4 font-semibold">
-             {/* md-ceo name <div >:<br/> </div> */}
+              {/* md-ceo name <div >:<br/> </div> */}
               {/* phone */}
               <div className="flex gap-x-[10px]">
                 <FaPhone className="mt-1" />
-                <div className="font-medium">(+91)77777 99999,<br/>(+91)99885 99887</div>
+                <div className="font-medium">
+                  (+91)77777 99999,
+                  <br />
+                  (+91)99885 99887
+                </div>
               </div>
               {/* email */}
               <div className="flex items-center gap-x-[10px]">
@@ -94,33 +112,45 @@ export default function Footer() {
               <h3 className="h3 font-bold mb-8">Follow Us</h3>
               <ul className="flex flex-wrap gap-y-4 font-semibold">
                 <li className="text-2xl mr-2">
-                  <a href="https://www.instagram.com/hillrise_mushrooms_farm/" ><FaInstagram/></a>
+                  <a href="https://www.facebook.com/">
+                    <FaFacebookF />
+                  </a>
                 </li>
                 <li className="text-2xl mr-2">
-                  <a href="https://www.facebook.com/people/Hillrise-mushrooms-farm/100090010670075/?mibextid=ZbWKwL" ><FaFacebookF/></a>
+                  <a href="https://www.instagram.com/">
+                    <FaInstagram />
+                  </a>
                 </li>
-                <li className="text-2xl mr-2">
+
+                {/* <li className="text-2xl mr-2">
                   <a href="https://www.instagram.com/shubham_s_gawade/"><FaInstagram/></a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
           {/* newsletter */}
+          {/* instagram: https://www.instagram.com/hillrise_mushrooms_farm/
+            facebook : https://www.facebook.com/people/Hillrise-mushrooms-farm/100090010670075/?mibextid=ZbWKwL */}
           <div className="flex-1">
             <h3 className="h3 font-bold mb-8 ">Newsletter</h3>
-            <div className="mb-9 text-secondary">Subscribe to our newsletter </div>
+            <div className="mb-9 text-secondary">
+              Subscribe to our newsletter{" "}
+            </div>
             <form className="flex gap-x-2 h-14">
               <input
                 type="text"
                 placeholder="Your email"
                 className="outline-none bg-white h-full border rounded-lg pl-4 focus:border-accent"
               />
-              <button type="submit" className="btn btn-sm btn-accent w-24"> Submit </button>
+              <button type="submit" className="btn btn-sm btn-accent w-24">
+                {" "}
+                Submit{" "}
+              </button>
             </form>
           </div>
         </div>
       </div>
-      <Copyright/>
+      <Copyright />
     </footer>
   );
 }

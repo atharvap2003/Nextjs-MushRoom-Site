@@ -1,4 +1,7 @@
 "use client";
+import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { FaPhone, FaEnvelope } from "react-icons/fa6";
 
@@ -12,8 +15,56 @@ import Link from "next/link";
 
 import Image from "next/image";
 import Maps from "./Maps";
+import { set } from "date-fns";
 
 export default function Cta() {
+  const [userData, setUserData] = useState({
+    firstName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  let name, value; //this is for to change the content in the input field!!
+  const postUserData = (event) => {
+    name = event.target.name;
+    value = event.target.value;
+    setUserData({ ...userData, [name]: value });
+  };
+
+  const notify = () => toast("Data Submitted");
+
+  // connect with firebase
+  const submitContactData = async (event) => {
+    event.preventDefault();
+    const { firstName, email, phone, message } = userData;
+    if (firstName && email && phone && message) {
+      const res = await fetch(
+        "https://hillarious-mushroom-default-rtdb.firebaseio.com/userDataRecords.json",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ firstName, email, phone, message }),
+        }
+      );
+      if (res) {
+        setUserData({
+          firstName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+        alert("Data Stored Successfully!!");
+      } else {
+        alert("Please store the Data");
+      }
+    } else {
+      alert("Please store the Data");
+    }
+  };
+
   return (
     <section
       className="  pt-24 xl:pt-24 flex items-end pb-0 bg-[#b2b7c2]/10 overflow-hidden "
@@ -37,6 +88,10 @@ export default function Cta() {
                     <input
                       type="text"
                       placeholder="Your Name"
+                      onChange={postUserData}
+                      value={userData.firstName}
+                      name="firstName"
+                      required
                       class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                     />
                   </div>
@@ -44,13 +99,21 @@ export default function Cta() {
                     <input
                       type="email"
                       placeholder="Your Email"
+                      onChange={postUserData}
+                      value={userData.email}
+                      name="email"
+                      required
                       class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                     />
                   </div>
                   <div class="mb-6">
                     <input
-                      type="text"
+                      type="phone"
                       placeholder="Your Phone"
+                      name="phone"
+                      onChange={postUserData}
+                      value={userData.phone}
+                      required
                       class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                     />
                   </div>
@@ -58,6 +121,10 @@ export default function Cta() {
                     <textarea
                       rows="6"
                       placeholder="Your Message"
+                      name="message"
+                      required
+                      onChange={postUserData}
+                      value={userData.message}
                       class="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"
                     ></textarea>
                   </div>
@@ -65,6 +132,7 @@ export default function Cta() {
                     <button
                       type="submit"
                       class="bg-primary border-primary w-full rounded border p-3 text-white transition hover:bg-opacity-90"
+                      onClick={submitContactData}
                     >
                       Send Message
                     </button>
@@ -82,8 +150,11 @@ export default function Cta() {
             className="flex flex-col flex-1 order-1 justify-center md:order-none h-70vh"
           >
             <Maps />
-            <Link href="https://www.google.com/maps/place/17%C2%B055'49.7%22N+74%C2%B037'43.5%22E/@17.930459,74.628745,17z/data=!3m1!4b1!4m4!3m3!8m2!3d17.930459!4d74.628745?entry=ttu" className="text-left mt-[8px] flex flex-col">
-            {/* <strong>Address:</strong> Kurvali bk tal phaltan dist satara pincode 415523, */}
+            <Link
+              href="https://www.google.com/maps/place/17%C2%B055'49.7%22N+74%C2%B037'43.5%22E/@17.930459,74.628745,17z/data=!3m1!4b1!4m4!3m3!8m2!3d17.930459!4d74.628745?entry=ttu"
+              className="text-left mt-[8px] flex flex-col"
+            >
+              {/* <strong>Address:</strong> Kurvali bk tal phaltan dist satara pincode 415523, */}
               {/* <br/> Kurvali Bk., Maharashtra 415523{" "} */}
             </Link>
             {/* phone &Email */}
