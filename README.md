@@ -2,7 +2,6 @@
 
 https://nextjsmushroomsite.netlify.app/
 
-
 ## Getting Started
 
 First, run the development server:
